@@ -1,0 +1,24 @@
+Default: &defaults
+  user: postgres
+  password: qwe123
+  host: localhost
+  port: 5432
+  database: yes1
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: yes1_test
+  <<: *defaults
+
+Staging:
+  database: yes1
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: yes1
+  poolsize: 100
+  <<: *defaults
