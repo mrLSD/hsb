@@ -1,0 +1,25 @@
+$newline never
+\<!doctype html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+
+            <title>#{pageTitle pc}
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            ^{pageHead pc}
+    <body>
+        <div .container id="page">
+            <div id="header">
+                <div id="logo">Test App
+            <div id="mainmenu">
+                <ul>
+                    <li>
+                        <a href=@{HomeR}>Home
+            <div .container>
+                <div id="content">                
+                    ^{pageBody pc}
+            <div id="footer">
+                #{extraCopyright $ appExtra $ settings master}
+
