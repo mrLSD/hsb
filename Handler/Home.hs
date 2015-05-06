@@ -37,3 +37,32 @@ sampleForm :: Form (FileInfo, Text)
 sampleForm = renderDivs $ (,)
     <$> fileAFormReq "Choose a file"
     <*> areq textField "What's on the file?" Nothing
+
+-- The datatype for form
+data ThePage = ThePage
+    { title         :: Text
+    , desctiption   :: Maybe Text
+    , url           :: Maybe Text
+    }
+    deriving Show
+
+-- The form
+-- thePageForm :: Html -> MForm Handler (FormResult ThePage, Widget)
+thePageForm :: Form ThePage
+thePageForm = renderDivs $ ThePage
+    <$> areq textField "Page Title" Nothing
+    <*> aopt textField "Page Desctiption" Nothing
+    <*> aopt urlField "Page Url Slug" Nothing
+
+getTestaformR :: Handler Html
+getTestaformR = do
+    (formWidget, formEnctype) <- generateFormPost thePageForm
+    defaultLayout $ do
+        setTitle "The AForm"
+        $(widgetFile "testaform")
+
+postTestaformR :: Handler Html
+postTestaformR = do
+    ((result, formWidget), formEnctype) <- runFormPost thePageForm
+    case result of
+        FormSuccess page

@@ -6,4 +6,7 @@ environment: default
 cabal-file: project.cabal
 version: 1
 ghc-args: []
-excluded-modules: []
+excluded-modules:
+- app/main.hs
+- devel.hs
+- tests/main.hs

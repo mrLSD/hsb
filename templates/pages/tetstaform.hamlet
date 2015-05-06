@@ -1,0 +1,7 @@
+<h1>Test Application form
+<p>Thsi example test form developed@
+   via Applicative Form.
+<div>
+     <form method=post action=@{Testaform} enctype=#(fromEnctype)>
+           ^{formWidget}
+           <button type=submit>Save
